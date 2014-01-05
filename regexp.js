@@ -97,7 +97,7 @@ function RegExpBenchmark() {
     return sum;
   }
 
-  var re0 = /^ba/;
+  var re0 = new RegExpJS(/^ba/);
   var re1 = /(((\w+):\/\/)([^\/:]*)(:(\d+))?)?([^#?]*)(\?([^#]*))?(#(.*))?/;
   var re2 = /^\s*|\s*$/g;
   var re3 = /\bQBZPbageby_cynprubyqre\b/;
