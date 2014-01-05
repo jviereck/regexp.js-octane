@@ -84,6 +84,19 @@ function RegExpBenchmark() {
     return sum;
   }
 
+  function Exec2(re, string) {
+    var sum = 0;
+    re.lastIndex = 0;
+    var array = re.exec(string);
+    if (array) {
+      for (var i = 0; i < array.length; i++) {
+        var substring = array[i];
+        if (substring) sum += substring.length;
+      }
+    }
+    return sum;
+  }
+
   var re0 = /^ba/;
   var re1 = /(((\w+):\/\/)([^\/:]*)(:(\d+))?)?([^#?]*)(\?([^#]*))?(#(.*))?/;
   var re2 = /^\s*|\s*$/g;
@@ -134,86 +147,86 @@ function RegExpBenchmark() {
   function runBlock0() {
     var sum = 0;
     for (var i = 0; i < 525; i++) {
-      sum += Exec(re0, s0[i]);
+      sum += Exec2(re0, s0[i]);
     }
     for (var i = 0; i < 1844; i++) {
-      sum += Exec(re0, s0[i + 525]);
+      sum += Exec2(re0, s0[i + 525]);
       sum += Exec(re1, s1[i]);
     }
     for (var i = 0; i < 739; i++) {
-      sum += Exec(re0, s0[i + 2369]);
+      sum += Exec2(re0, s0[i + 2369]);
       sum += s2[i].replace(re2, '').length;
     }
     for (var i = 0; i < 598; i++) {
-      sum += Exec(re0, s0[i + 3108]);
+      sum += Exec2(re0, s0[i + 3108]);
       sum += Exec(re1, s3[i]);
     }
     for (var i = 0; i < 454; i++) {
-      sum += Exec(re0, s0[i + 3706]);
+      sum += Exec2(re0, s0[i + 3706]);
       sum += Exec(re1, s4[i]);
     }
     for (var i = 0; i < 352; i++) {
-      sum += Exec(re0, s0[i + 4160]);
+      sum += Exec2(re0, s0[i + 4160]);
       sum += Exec(/qqqq|qqq|qq|q|ZZZZ|ZZZ|ZZ|Z|llll|ll|l|uu|u|UU|U|zz|z|ff|f|gg|g|sss|ss|s|mmm|mm|m/g, s5[i]);
     }
     for (var i = 0; i < 312; i++) {
-      sum += Exec(re0, s0[i + 4512]);
+      sum += Exec2(re0, s0[i + 4512]);
       sum += Exec(re3, s6[i]);
     }
     for (var i = 0; i < 282; i++) {
-      sum += Exec(re0, s0[i + 4824]);
+      sum += Exec2(re0, s0[i + 4824]);
       sum += Exec(re4, s7[i]);
     }
     for (var i = 0; i < 177; i++) {
-      sum += Exec(re0, s0[i + 5106]);
+      sum += Exec2(re0, s0[i + 5106]);
       sum += s8[i].replace(re5, '').length;
     }
     for (var i = 0; i < 170; i++) {
-      sum += Exec(re0, s0[i + 5283]);
+      sum += Exec2(re0, s0[i + 5283]);
       sum += s9[i].replace(re6, '').length;
       sum += Exec(re7, s10[i]);
     }
     for (var i = 0; i < 156; i++) {
-      sum += Exec(re0, s0[i + 5453]);
+      sum += Exec2(re0, s0[i + 5453]);
       sum += Exec(re8, s11[i]);
       sum += Exec(re8, s12[i]);
     }
     for (var i = 0; i < 144; i++) {
-      sum += Exec(re0, s0[i + 5609]);
-      sum += Exec(re0, s13[i]);
+      sum += Exec2(re0, s0[i + 5609]);
+      sum += Exec2(re0, s13[i]);
     }
     for (var i = 0; i < 139; i++) {
-      sum += Exec(re0, s0[i + 5753]);
+      sum += Exec2(re0, s0[i + 5753]);
       sum += s14[i].replace(re6, '').length;
       sum += Exec(re7, s14[i]);
       sum += Exec(re9, '');
       sum += Exec(/JroXvg\/(\S+)/, s15[i]);
     }
     for (var i = 0; i < 137; i++) {
-      sum += Exec(re0, s0[i + 5892]);
+      sum += Exec2(re0, s0[i + 5892]);
       sum += s16[i].replace(re10, '').length;
       sum += s16[i].replace(/\[/g, '').length;
       sum += s17[i].replace(re11, '').length;
     }
     for (var i = 0; i < 117; i++) {
-      sum += Exec(re0, s0[i + 6029]);
+      sum += Exec2(re0, s0[i + 6029]);
       sum += s18[i].replace(re2, '').length;
     }
     for (var i = 0; i < 95; i++) {
-      sum += Exec(re0, s0[i + 6146]);
+      sum += Exec2(re0, s0[i + 6146]);
       sum += Exec(/(?:^|;)\s*sevraqfgre_ynat=([^;]*)/, s19[i]);
     }
     for (var i = 0; i < 93; i++) {
-      sum += Exec(re0, s0[i + 6241]);
+      sum += Exec2(re0, s0[i + 6241]);
       sum += s20[i].replace(re12, '').length;
       sum += Exec(re13, s20[i]);
     }
     for (var i = 0; i < 92; i++) {
-      sum += Exec(re0, s0[i + 6334]);
+      sum += Exec2(re0, s0[i + 6334]);
       sum += s21[i].replace(/([a-zA-Z]|\s)+/, '').length;
     }
     for (var i = 0; i < 85; i++) {
-      sum += Exec(re0, s0[i + 6426]);
+      sum += Exec2(re0, s0[i + 6426]);
       sum += s22[i].replace(re14, '').length;
       sum += s22[i].replace(re15, '').length;
       sum += s23[i].replace(re12, '').length;
@@ -290,8 +303,8 @@ function RegExpBenchmark() {
       sum += Exec(re8, s39[i]);
       sum += Exec(/Fnsnev\/(\d+\.\d+)/, s15[i]);
       sum += Exec(re3, s41[i]);
-      sum += Exec(re0, s42[i]);
-      sum += Exec(re0, s43[i]);
+      sum += Exec2(re0, s42[i]);
+      sum += Exec2(re0, s43[i]);
     }
     for (var i = 0; i < 77; i++) {
       sum += s44[i].replace(re12, '').length;
